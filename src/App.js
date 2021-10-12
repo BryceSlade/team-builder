@@ -32,6 +32,9 @@ function App() {
     if (!newMember.name || !newMember.email || !newMember.role) {
       setErrorText('Please enter all fields.')
       return;
+    } else {
+      setTeamMember([...teamMember, newMember])
+      setFormValues(initialValues)
     }
   }
 
@@ -49,7 +52,7 @@ function App() {
       {
         teamMember.map(item => {
           return (
-          <Member key={item.id} details={item} />
+          <Member key={item.role} details={item} />
           )
         })
       }
